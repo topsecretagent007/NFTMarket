@@ -10,6 +10,7 @@ import { TiSocialLinkedinCircular } from "react-icons/ti";
 import { opensellnft, closesellnft } from "../action/sellAction";
 import NFTsell from "./sellNFT";
 import axios from "axios";
+import BaseURL from "./BaseURL";
 
 export default function Createnft() {
     const { id }  = useParams();
@@ -18,7 +19,7 @@ export default function Createnft() {
     const user = JSON.parse(localStorage.getItem('my-account'));
     const [metadata, setMetadata] = useState({});
     useEffect(() => {
-        let url = `http://localhost:8000/getNft/${id}`;
+        let url = `${BaseURL}/getNft/${id}`;
         axios.get(url, {})
         .then(res => {
             setMetadata(res.data);

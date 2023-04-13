@@ -20,10 +20,8 @@ export default function MyProfile() {
             })
             const xrpBal = await client.getXrpBalance(user.account);
             const igcBal = responseLines.result.lines[0].balance;
-            const fseBal = responseLines.result.lines[1].balance;
             setMyXRPBalance(xrpBal);
             setMyIGCBalance(igcBal);
-            setMyFSEBalance(fseBal);
             if (result) {
                 setMyNFTs(result.account_nfts);
             }

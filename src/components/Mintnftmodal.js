@@ -6,6 +6,7 @@ import { closeMintModal } from "../action/createMintAction";
 import { walletshowup, walletshowout } from "../action/walletAction";
 import { setroyalty, setmintfee, settotalcost } from "../action/royaltyAction";
 import axios from "axios";
+import BaseURL from "./BaseURL";
 
 const xrpl = require("xrpl");
 
@@ -17,7 +18,7 @@ export default function Mintnftmodal(props) {
     const royalty = useSelector((state) => state.walletReducer.royalty)
 
     async function setNftRoyalty() {
-        let _url = `http://localhost:8000/getNft/mint/${props.nftID}`
+        let _url = `${BaseURL}/getNft/mint/${props.nftID}`
         await axios.post(_url, { nftRoyalty: royalty });
     }
 
@@ -39,6 +40,7 @@ export default function Mintnftmodal(props) {
             TransferFee: parseInt(royalty),
             NFTokenTaxon: 0
         })
+
         const tx = await client.submitAndWait(transactionBlob, { wallet: user })
         const nfts = await client.request({
             method: "account_nfts",

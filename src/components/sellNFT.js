@@ -6,6 +6,8 @@ import { walletshowup, walletshowout } from "../action/walletAction";
 import { closesellnft } from "../action/sellAction";
 import { settotalcost, setNftReserve, setNFTAAgtSale } from "../action/royaltyAction";
 import axios from "axios";
+import BaseURL from "./BaseURL";
+
 const xrpl = require("xrpl");
 
 export default function NFTsell(props) {
@@ -17,13 +19,13 @@ export default function NFTsell(props) {
     const [agterSale, setAgterSale] = useState("");
     const setPrice = async () => {
         let price = walletReducer.totalCost;
-        let url = `http://localhost:8000/getNft/price/${props.nftID}`;
+        let url = `${BaseURL}/getNft/price/${props.nftID}`;
         await axios.post(url, { nftPrice: price });
     }
 
     useEffect(() => {
         if (props.nftID) {
-            let url = `http://localhost:8000/getNft/${props.nftID}`;
+            let url = `${BaseURL}/getNft/${props.nftID}`;
             axios.get(url, {})
                 .then(res => {
                     console.log(res.data)
