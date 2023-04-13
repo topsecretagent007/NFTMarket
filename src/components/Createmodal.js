@@ -8,6 +8,7 @@ import { setNftName, setNftSelect, setNftDescription, setNftEmail } from "../act
 import Uploadnftimg from "./Uploadnftimg.js"
 import MakeInput from "./Createinput.js";
 import axios from "axios";
+import BaseURL from "./BaseURL";
 
 export default function Createmodal() {
   const navigate = useNavigate()
@@ -38,16 +39,16 @@ export default function Createmodal() {
     formData.append("nftName", newNFT.nftName);
     formData.append("nftDescription", newNFT.nftDescription);
     formData.append("nftProperties", newNFT.nftProperties);
-    axios.post("http://localhost:8000/create/", formData, { headers: { 'Content-Type': 'multipart/form-data' } })
-    .then(res => {
-        let recordID = res.data; 
+    axios.post(`${BaseURL}/create/`, formData, { headers: { 'Content-Type': 'multipart/form-data' } })
+      .then(res => {
+        let recordID = res.data;
         dispatch(closeModal());
         setDisabled(false);
         navigate(`/getNft/${recordID}`);
-    })
-    .catch(err => {
+      })
+      .catch(err => {
         console.log(err);
-    })
+      })
   }
   const onImageChange = (images) => {
     setImages(images)
@@ -116,15 +117,14 @@ export default function Createmodal() {
                 <div className="w-full p-5 rounded-[10px] border-dotted border-2 my-2 border-[#edb731] text-[#edb731]">Collections group together similar NFTs and dictate which category they appein. toamend an existing collection, <div className="text-[#edb714] cursor-pointer">Click Here</div> or to create a new collection <div className="text-[#edb714] cursor-pointer">Click Here</div></div>
                 <div className="w-full items-end border-b-2 border-b-[#edb731] my-2 py-4 text-white text-xl">Description</div>
                 <div className="flex justify-start bg-white text-black rounded-[10px] border-[3px] border-[#090c6f]">
-                  <div className="relative mb-3 xl:w-full" data-te-input-wrapper-init onChange={(event) => dispatch(setNftDescription(event.target.value))}>
-                    <textarea
-                      className="peer block min-h-[auto] w-full rounded border-0 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                      id="exampleFormControlTextarea1"
-                      rows="4"
-                      placeholder="Your message"
-                    >
-                    </textarea>
-                  </div>
+                  <textarea
+                    className="peer block min-h-[auto] w-full rounded border-0 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none"
+                    id="exampleFormControlTextarea1"
+                    rows="4"
+                    placeholder="Your message"
+                    data-te-input-wrapper-init onChange={(event) => dispatch(setNftDescription(event.target.value))}
+                  >
+                  </textarea>
                 </div>
                 <div className="w-full items-end border-b-2 border-b-[#edb731] my-2 py-4 text-white text-xl">Properties</div>
                 <div className="flex">
@@ -152,7 +152,7 @@ export default function Createmodal() {
             </div>
             <div className="px-12 py-10 flex">
               {disabled ?
-                <button  className="w-full grid-cols-1 py-4 px-24 rounded-full bg-[#edb731] text-center items-center font-bold text-xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#f3ec12] duration-300" onClick={() => inputValue()}>Create NFT</button>
+                <button className="w-full grid-cols-1 py-4 px-24 rounded-full bg-[#edb731] text-center items-center font-bold text-xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#f3ec12] duration-300" onClick={() => inputValue()}>Create NFT</button>
                 : <button className="w-full grid-cols-1 py-4 px-24 rounded-full bg-[#272727] text-center items-center font-bold text-xl">Create NFT</button>
               }
             </div>

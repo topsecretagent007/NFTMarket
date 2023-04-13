@@ -39,12 +39,12 @@ export default function Header() {
         xummSignInHandler(await xumm.state());
     });
     const signIn = () => {
-        // localStorage.setItem("my-account", JSON.stringify(test));
-        // setMyAccount(test);
-        // setDisabled(true);
-        xumm.authorize().then((session) => {
-            xummSignInHandler(session);
-        });
+        localStorage.setItem("my-account", JSON.stringify(test));
+        setMyAccount(test);
+        setDisabled(true);
+        // xumm.authorize().then((session) => {
+        //     xummSignInHandler(session);
+        // });
     }
     const sigout = () => {
         localStorage.removeItem("my-account");
@@ -88,14 +88,14 @@ export default function Header() {
                     <div className="text-white text-xl">
                         <div className="hidden xl:flex gap-12">
                             <Link to='/'>Featured</Link>
-                            <Link to='/' className="group/item">Store
+                            <div className="group/item">Store
                                 <div className="text-start invisible group-hover/item:visible py-2 bg-black absolute">
                                     <Link onClick={() => { userSign() }} className="block px-4 py-2 hover:bg-[#edb731] text-lg" >Browse All Products</Link>
                                     <Link onClick={() => { userSign() }} className="block px-4 py-2 hover:bg-[#edb731] text-lg">My Cart</Link>
                                     <Link onClick={() => { userSign() }} className="block px-4 py-2 hover:bg-[#edb731] text-lg">Precious Orders</Link>
                                 </div>
-                            </Link>
-                            <Link to='/' className="group/item z-10">Explore
+                            </div>
+                            <div className="group/item z-10">Explore
                                 <div className="text-start invisible group-hover/item:visible py-2 bg-black absolute">
                                     <Link onClick={() => { userSign() }} className="block px-4 py-2 hover:bg-[#edb731] text-lg" >Recently Listed For Sale</Link>
                                     <Link onClick={() => { userSign() }} className="block px-4 py-2 hover:bg-[#edb731] text-lg">Recent Sales</Link>
@@ -112,15 +112,15 @@ export default function Header() {
                                     <Link onClick={() => { userSign() }} className="block px-4 py-2 hover:bg-[#edb731] text-lg" >Trading Cards</Link>
                                     <Link onClick={() => { userSign() }} className="block px-4 py-2 hover:bg-[#edb731] text-lg" >Utility</Link>
                                 </div>
-                            </Link>
-                            <Link to='/' className="group/item">Tools
+                            </div>
+                            <div className="group/item">Tools
                                 <div className="text-start invisible group-hover/item:visible py-2 bg-black absolute">
                                     <Link onClick={() => { userSign() }} className="block px-4 py-2 hover:bg-[#edb731] text-lg" >Create a new  NFT</Link>
                                     <Link onClick={() => { userSign() }} className="block px-4 py-2 hover:bg-[#edb731] text-lg">Create a new collection</Link>
                                     <Link onClick={() => { userSign() }} className="block px-4 py-2 hover:bg-[#edb731] text-lg">Set minter status</Link>
                                 </div>
-                            </Link>
-                            <Link to='/' className="group/item z-10">Account
+                            </div>
+                            <div className="group/item z-10">Account
                                 <div className="text-start invisible group-hover/item:visible py-2 bg-black absolute">
                                     <Link onClick={() => { userSign() }} className="flex px-4 py-2 w-full justify-between gap-2 text-start hover:bg-[#edb731] text-lg" >My NFTs</Link>
                                     <Link onClick={() => { userSign() }} className="flex px-4 py-2 justify-between gap-2 hover:bg-[#edb731] text-lg">My Collections </Link>
@@ -130,7 +130,7 @@ export default function Header() {
                                     <Link onClick={() => { userSign() }} className="flex px-4 py-2 justify-between gap-2 hover:bg-[#edb731] text-lg" >Wallet Balances </Link>
                                     <Link onClick={() => { userSign() }} className="flex px-4 justify-between gap-2 py-2 hover:bg-[#edb731] text-lg" >Edit Profile </Link>
                                 </div>
-                            </Link>
+                            </div>
                         </div>
                     </div>
                     <div className="text-center justify-between items-center flex">
@@ -138,14 +138,14 @@ export default function Header() {
                             <BsMenuButtonWide />
                             <div className="text-center invisible group-hover/item:visible py-3 bg-black absolute">
                                 <Link to='/'>Featured</Link>
-                                <Link to='/' className="group/item">Store
+                                <div className="group/item">Store
                                     <div className="text-start invisible group-hover/item:visible py-2 bg-black absolute">
                                         <Link onClick={() => { userSign() }} className="block px-4 py-2 hover:bg-[#edb731] text-lg" >Browse All Products</Link>
                                         <Link onClick={() => { userSign() }} className="block px-4 py-2 hover:bg-[#edb731] text-lg">My Cart</Link>
                                         <Link onClick={() => { userSign() }} className="block px-4 py-2 hover:bg-[#edb731] text-lg">Precious Orders</Link>
                                     </div>
-                                </Link>
-                                <Link to='/' className="group/item z-10">Explore
+                                </div>
+                                <div className="group/item z-10">Explore
                                     <div className="text-start invisible group-hover/item:visible py-2 bg-black absolute">
                                         <Link onClick={() => { userSign() }} className="block px-4 py-2 hover:bg-[#edb731] text-lg" >Recently Listed For Sale</Link>
                                         <Link onClick={() => { userSign() }} className="block px-4 py-2 hover:bg-[#edb731] text-lg">Recent Sales</Link>
@@ -162,15 +162,15 @@ export default function Header() {
                                         <Link onClick={() => { userSign() }} className="block px-4 py-2 hover:bg-[#edb731] text-lg" >Trading Cards</Link>
                                         <Link onClick={() => { userSign() }} className="block px-4 py-2 hover:bg-[#edb731] text-lg" >Utility</Link>
                                     </div>
-                                </Link>
-                                <Link to='/' className="group/item">Tools
+                                </div>
+                                <div className="group/item">Tools
                                     <div className="text-start invisible group-hover/item:visible py-2 bg-black absolute">
                                         <Link onClick={() => { userSign() }} className="block px-4 py-2 hover:bg-[#edb731] text-lg" >Create a new  NFT</Link>
                                         <Link onClick={() => { userSign() }} className="block px-4 py-2 hover:bg-[#edb731] text-lg">Create a new collection</Link>
                                         <Link onClick={() => { userSign() }} className="block px-4 py-2 hover:bg-[#edb731] text-lg">Set minter status</Link>
                                     </div>
-                                </Link>
-                                <Link to='/' className="group/item z-10">Account
+                                </div>
+                                <div className="group/item z-10">Account
                                     <div className="text-start invisible group-hover/item:visible py-2 bg-black absolute">
                                         <Link onClick={() => { userSign() }} className="flex px-4 py-2 w-full justify-between gap-2 text-start hover:bg-[#edb731] text-lg" >My NFTs</Link>
                                         <Link onClick={() => { userSign() }} className="flex px-4 py-2 justify-between gap-2 hover:bg-[#edb731] text-lg">My Collections </Link>
@@ -180,7 +180,7 @@ export default function Header() {
                                         <Link onClick={() => { userSign() }} className="flex px-4 py-2 justify-between gap-2  hover:bg-[#edb731] text-lg" >Wallet Balances </Link>
                                         <Link onClick={() => { userSign() }} className="flex px-4 py-2  justify-between gap-2 hover:bg-[#edb731] text-lg" >Edit Profile </Link>
                                     </div>
-                                </Link>
+                                </div>
                             </div>
                         </div>
                         <div className="flex text-center items-center">
@@ -208,14 +208,14 @@ export default function Header() {
                     <div className="text-white text-xl">
                         <div className="hidden xl:flex gap-12">
                             <Link to='/'>Featured</Link>
-                            <Link to='/' className="group/item">Store
+                            <div className="group/item">Store
                                 <div className="text-start invisible group-hover/item:visible py-2 bg-black absolute">
                                     <Link to={disabled ? "/" : null} className="block px-4 py-2 hover:bg-[#edb731] text-lg" >Browse All Products</Link>
                                     <Link to={disabled ? "/" : null} className="block px-4 py-2 hover:bg-[#edb731] text-lg">My Cart</Link>
                                     <Link to={disabled ? "/" : null} className="block px-4 py-2 hover:bg-[#edb731] text-lg">Precious Orders</Link>
                                 </div>
-                            </Link>
-                            <Link to='/' className="group/item z-10">Explore
+                            </div>
+                            <div className="group/item z-10">Explore
                                 <div className="text-start invisible group-hover/item:visible py-2 bg-black absolute">
                                     <Link to={disabled ? "/" : null} className="block px-4 py-2 hover:bg-[#edb731] text-lg" >Recently Listed For Sale</Link>
                                     <Link to={disabled ? "/" : null} className="block px-4 py-2 hover:bg-[#edb731] text-lg">Recent Sales</Link>
@@ -232,15 +232,15 @@ export default function Header() {
                                     <Link to={disabled ? "/" : null} className="block px-4 py-2 hover:bg-[#edb731] text-lg" >Trading Cards</Link>
                                     <Link to={disabled ? "/" : null} className="block px-4 py-2 hover:bg-[#edb731] text-lg" >Utility</Link>
                                 </div>
-                            </Link>
-                            <Link to='/' className="group/item">Tools
+                            </div>
+                            <div className="group/item">Tools
                                 <div className="text-start invisible group-hover/item:visible py-2 bg-black absolute">
                                     <Link to={disabled ? "/" : null} className="block px-4 py-2 hover:bg-[#edb731] text-lg" >Create a new  NFT</Link>
                                     <Link to={disabled ? "/createcollection" : null} className="block px-4 py-2 hover:bg-[#edb731] text-lg">Create a new collection</Link>
                                     <Link to={disabled ? "/" : null} className="block px-4 py-2 hover:bg-[#edb731] text-lg">Set minter status</Link>
                                 </div>
-                            </Link>
-                            <Link to='/' className="group/item z-10">Account
+                            </div>
+                            <div className="group/item z-10">Account
                                 <div className="text-start invisible group-hover/item:visible py-2 bg-black absolute">
                                     <Link to={disabled ? "/mynfts" : null} className="flex px-4 py-2 w-full justify-between gap-2 text-start hover:bg-[#edb731] text-lg" >My NFTs<div className="px-2 py-1 bg-green-300 rounded-xl text-black">{myNFTs.length}</div></Link>
                                     <Link to={disabled ? "/" : null} className="flex px-4 py-2 justify-between gap-2 hover:bg-[#edb731] text-lg">My Collections<div className="px-2 py-1 bg-green-300 rounded-xl text-black">0</div> </Link>
@@ -250,7 +250,7 @@ export default function Header() {
                                     <Link to={disabled ? "/" : null} className="flex px-4 py-2 justify-between gap-2 hover:bg-[#edb731] text-lg" >Wallet Balances</Link>
                                     <Link to={disabled ? "/myprofile" : null} className="flex px-4 justify-between gap-2 py-2 hover:bg-[#edb731] text-lg" >Edit Profile</Link>
                                 </div>
-                            </Link>
+                            </div>
                         </div>
                     </div>
                     <div className="text-center justify-between items-center flex">
@@ -258,14 +258,14 @@ export default function Header() {
                             <BsMenuButtonWide />
                             <div className="text-center invisible group-hover/item:visible py-3 bg-black absolute">
                                 <Link to='/'>Featured</Link>
-                                <Link to='/' className="group/item">Store
+                                <div className="group/item">Store
                                     <div className="text-start invisible group-hover/item:visible py-2 bg-black absolute">
                                         <Link to={disabled ? "/" : null} className="block px-4 py-2 hover:bg-[#edb731] text-lg" >Browse All Products</Link>
                                         <Link to={disabled ? "/" : null} className="block px-4 py-2 hover:bg-[#edb731] text-lg">My Cart</Link>
                                         <Link to={disabled ? "/" : null} className="block px-4 py-2 hover:bg-[#edb731] text-lg">Precious Orders</Link>
                                     </div>
-                                </Link>
-                                <Link to='/' className="group/item z-10">Explore
+                                </div>
+                                <div className="group/item z-10">Explore
                                     <div className="text-start invisible group-hover/item:visible py-2 bg-black absolute">
                                         <Link to={disabled ? "/" : null} className="block px-4 py-2 hover:bg-[#edb731] text-lg" >Recently Listed For Sale</Link>
                                         <Link to={disabled ? "/" : null} className="block px-4 py-2 hover:bg-[#edb731] text-lg">Recent Sales</Link>
@@ -282,15 +282,15 @@ export default function Header() {
                                         <Link to={disabled ? "/" : null} className="block px-4 py-2 hover:bg-[#edb731] text-lg" >Trading Cards</Link>
                                         <Link to={disabled ? "/" : null} className="block px-4 py-2 hover:bg-[#edb731] text-lg" >Utility</Link>
                                     </div>
-                                </Link>
-                                <Link to='/' className="group/item">Tools
+                                </div>
+                                <div className="group/item">Tools
                                     <div className="text-start invisible group-hover/item:visible py-2 bg-black absolute">
                                         <Link to={disabled ? "/" : null} className="block px-4 py-2 hover:bg-[#edb731] text-lg" >Create a new  NFT</Link>
                                         <Link to={disabled ? "/createcollection" : null} className="block px-4 py-2 hover:bg-[#edb731] text-lg">Create a new collection</Link>
                                         <Link to={disabled ? "/" : null} className="block px-4 py-2 hover:bg-[#edb731] text-lg">Set minter status</Link>
                                     </div>
-                                </Link>
-                                <Link to='/' className="group/item z-10">Account
+                                </div>
+                                <div className="group/item z-10">Account
                                     <div className="text-start invisible group-hover/item:visible py-2 bg-black absolute">
                                         <Link to={disabled ? "/mynfts" : null} className="flex px-4 py-2 w-full justify-between gap-2 text-start hover:bg-[#edb731] text-lg" >My NFTs<div className="px-2 py-1 bg-green-300 rounded-xl text-black">{myNFTs.length}</div></Link>
                                         <Link to={disabled ? "/" : null} className="flex px-4 py-2 justify-between gap-2 hover:bg-[#edb731] text-lg">My Collections<div className="px-2 py-1 bg-green-300 rounded-xl text-black">0</div> </Link>
@@ -300,7 +300,7 @@ export default function Header() {
                                         <Link to={disabled ? "/" : null} className="flex px-4 py-2 justify-between gap-2  hover:bg-[#edb731] text-lg" >Wallet Balances</Link>
                                         <Link to={disabled ? "/myprofile" : null} className="flex px-4 py-2  justify-between gap-2 hover:bg-[#edb731] text-lg" >Edit Profile</Link>
                                     </div>
-                                </Link>
+                                </div>
                             </div>
                         </div>
                         <div className="flex text-center items-center">
@@ -314,7 +314,7 @@ export default function Header() {
                                 placement="bottom"
                                 radius={15}
                                 content={myAccount.account} >
-                                <Link to="/" className="px-2 sm:px-8 py-2 items-center gap-2 flex rounded-full cursor-pointer transition ease-in-out delay-150 bg-[#d4af37] hover:-translate-y-1 hover:scale-110 hover:bg-[#f3ec12] duration-300" onClick={() => {sigout(); dispatch(closeModal())}}>
+                                <Link to="/" className="px-2 sm:px-8 py-2 items-center gap-2 flex rounded-full cursor-pointer transition ease-in-out delay-150 bg-[#d4af37] hover:-translate-y-1 hover:scale-110 hover:bg-[#f3ec12] duration-300" onClick={() => { sigout(); dispatch(closeModal()) }}>
                                     <img src={myAccount.picture} className="rounded-full w-6 h-6" />
                                     <span className="sm:flex hidden text-xl font-bold clear-both whitespace-nowrap">Sign Out</span>
                                 </Link>

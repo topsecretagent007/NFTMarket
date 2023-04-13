@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { BiLink } from "react-icons/bi";
 import Logo from "../../assets/avata/1.png";
 import axios from "axios";
+import BaseURL from "../BaseURL";
 
 export default function SaleNFT() {
     const nftDate = useSelector((state) => state.nftReducer);
@@ -10,7 +11,7 @@ export default function SaleNFT() {
     const [metadata, setMetadata] = useState({});
     useEffect(() => {
         setTimeout(() => {
-            axios.get("http://localhost:8000/create/", {})
+            axios.get(`${BaseURL}/create/`, {})
                 .then(res => {
                     console.log(">>>>>>>>>>>>");
                     setMetadata(res.data);

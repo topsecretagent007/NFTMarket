@@ -11,7 +11,7 @@ import { openMintModal } from "../action/createMintAction";
 import Mintnftmodal from "./Mintnftmodal.js";
 import { closeModal, openModal } from '../action/modalAction.js';
 import axios from "axios";
-
+import BaseURL from "./BaseURL";
 export default function Createnft() {
     const { id } = useParams();
     const dispatch = useDispatch();
@@ -20,7 +20,7 @@ export default function Createnft() {
     const [metadata, setMetadata] = useState({});
   
     useEffect(() => {
-        let url = `http://localhost:8000/getNft/${id}`;
+        let url = `${BaseURL}/getNft/${id}`;
         axios.get(url, {})
             .then(res => {
                 setMetadata(res.data);
